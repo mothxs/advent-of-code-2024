@@ -21,8 +21,8 @@ defmodule One do
   def similarity() do
     {first, second} = Inputs.one()
 
-    Enum.reduce(first, [], fn number, acc -> 
-      acc ++ [number * Enum.count(second, & &1 == number)]
+    Enum.reduce(first, [], fn number, acc ->
+      acc ++ [number * Enum.count(second, &(&1 == number))]
     end)
     |> Enum.sum()
     |> IO.puts()
@@ -31,4 +31,3 @@ end
 
 One.distance()
 One.similarity()
-
