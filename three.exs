@@ -10,7 +10,7 @@ defmodule Three do
     @regexp
     |> Regex.scan(input)
     |> Enum.flat_map(& &1)
-    |> Enum.map(&(String.replace(&1, ["mul(", ")"], "") |> String.split(",") |> multiply()))
+    |> Enum.map(&(&1 |> String.replace(["mul(", ")"], "") |> String.split(",") |> multiply()))
     |> Enum.sum()
     |> IO.puts()
   end
